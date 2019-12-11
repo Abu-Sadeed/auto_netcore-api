@@ -45,11 +45,11 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'master') {
-                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/pracs/autoShell/auto_netcore-api/svcscripts/svcOne.sh jsonTwo.json'"
+                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/pracs/autoShell/auto_netcore-api/svcscripts/svcOne.sh jsonOne.json'"
                         //sh "sudo systemctl restart netcore-api_publish.service"
                     } 
                     if (env.BRANCH_NAME == 'dev') {
-                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/pracs/autoShell/auto_netcore-api/svcscripts/svcOne.sh jsonOne.json'"
+                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/pracs/autoShell/auto_netcore-api/svcscripts/svcOne.sh jsonTwo.json'"
                         //sh "sudo systemctl restart netcore-api.service"
                     }
                 }

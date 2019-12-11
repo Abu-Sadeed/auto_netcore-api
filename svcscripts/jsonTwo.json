@@ -1,7 +1,7 @@
 {
-    "file_name" : "Hello_there",
+    "file_name" : "netcore_dev",
     "description" : "Wrryyy",
     "package_path" : "dotnet",
-    "service_url" : "5000",
-    "service_path" : "/home/sadeed/workspace/pracs/branchLoopdate/output/BuildApp.dll"
+    "service_url" : "5001",
+    "service_path" : "/home/sadeed/workspace/pracs/dotnetJenkins/autoNetcore/dev/BuildApp.dll"
 }
