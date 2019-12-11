@@ -23,14 +23,14 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'master') {
-                        sh "dotnet publish -c release -o /var/lib/jenkins/workspace/netcoreApi/output/publish"
-                        sh "rsync -a /var/lib/jenkins/workspace/netcoreApi/output/publish sadeed@127.0.0.1:/home/sadeed/workspace/pracs/dotnetJenkins/netcore/publish"
-                        sh "echo publish complete"
+                        sh "dotnet publish -c release -o /var/lib/jenkins/workspace/auto_netcoreApi_master"
+                        sh "rsync -a /var/lib/jenkins/workspace/auto_netcoreApi_master sadeed@127.0.0.1:/home/sadeed/workspace/pracs/dotnetJenkins/autoNetcore/master"
+                        sh "echo  master publish complete"
                     } 
                     if(env.BRANCH_NAME == 'dev') {
-                        sh "dotnet publish -c release -o /var/lib/jenkins/workspace/netcoreApi/output/dev"
-                        sh "rsync -a /var/lib/jenkins/workspace/netcoreApi/output/dev sadeed@127.0.0.1:/home/sadeed/workspace/pracs/dotnetJenkins/netcore/dev"
-                        sh "echo Deploy complete"
+                        sh "dotnet publish -c release -o /var/lib/jenkins/workspace/auto_netcoreApi_dev"
+                        sh "rsync -a /var/lib/jenkins/workspace/auto_netcoreApi_dev sadeed@127.0.0.1:/home/sadeed/workspace/pracs/dotnetJenkins/autoNetcore/dev"
+                        sh "echo master Deploy complete"
                     }
                 }
             }
@@ -45,12 +45,12 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'master') {
-                        //sh "echo restart service"
+                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/shellScript/practice/svcscripts/svcOne.sh jsonTwo.json'"
                         //sh "sudo systemctl restart netcore-api_publish.service"
                     } 
                     if (env.BRANCH_NAME == 'dev') {
-                        sh "echo restart dev service"
-                        sh "sudo systemctl restart netcore-api.service"
+                        sh "ssh sadeed@localhost 'sudo /home/sadeed/workspace/shellScript/practice/svcscripts/svcOne.sh jsonOne.json'"
+                        //sh "sudo systemctl restart netcore-api.service"
                     }
                 }
             }
